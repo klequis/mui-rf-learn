@@ -6,7 +6,7 @@ import * as eventActions from 'store/actions/event-actions'
 import AppBar from 'ui/AppBar'
 import TestForm from './TestForm'
 import RadioGroupForm from './RadioGroupForm'
-import RadioGroupExportForm from './RadioGroupExportForm'
+import RadioGroupExportForm from './RadioButtons'
 import withRoot from './withRoot'
 
 class App extends React.Component {
