@@ -34,6 +34,4 @@ const RadioGroupExport = props => {
   )
 }
 
-export default reduxForm({
-  form: 'MaterialUiForm', // a unique identifier for this form
-})(RadioGroupExport)
+export default RadioGroupExport

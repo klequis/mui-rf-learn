@@ -6,7 +6,7 @@ import { Select, MenuItem, Checkbox, TextField, Radio, RadioGroup, FormHelperTex
 import RadioGroupExport from './RadioGroupExport'
 
 
-const MaterialUiForm = props => {
+const RadioButtons = props => {
   const { handleSubmit, pristine, reset, submitting } = props
   return (
     <form onSubmit={handleSubmit}>
@@ -28,5 +28,5 @@ const MaterialUiForm = props => {
 }
 
 export default reduxForm({
-  form: 'MaterialUiForm', // a unique identifier for this form
-})(MaterialUiForm)
+  form: 'RadioButtons', // a unique identifier for this form
+})(RadioButtons)
