@@ -2,15 +2,23 @@ import React from 'react'
 import { Field } from 'redux-form'
 import { Select } from '@material-ui/core'
 
+
 const renderSelect = (
-  { input, label, meta: { touched, error }, children, ...custom },
+  { 
+    input, 
+    label, 
+    meta: { touched, error }, 
+    children,
+    ...custom
+  },
 ) => (
   <Select
-    label={label}
-    error={touched && error}
-    {...input}
-    onChange={(event, index, value) => input.onChange(value)}
     children={children}
+    error={touched && error}
+    label={label}
+    // onChange={(event, index, value) => input.onChange(value)}
+    value={input.value}
+    {...input}
     {...custom}
   />
 )
