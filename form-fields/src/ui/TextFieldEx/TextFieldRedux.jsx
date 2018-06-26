@@ -14,7 +14,7 @@ const renderTextField = (
   />
 )
 
-const TextFieldExport = props => {
+const TextFieldRedux = props => {
   const { fieldName, fieldLabel, rows=0 } = props
   const multilineField = rows > 1
   return multilineField
@@ -32,4 +32,4 @@ const TextFieldExport = props => {
       />
 }
 
-export default TextFieldExport
+export default TextFieldRedux

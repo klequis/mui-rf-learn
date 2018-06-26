@@ -1,9 +1,9 @@
 import React from 'react'
 import { reduxForm } from 'redux-form'
-import TextFieldExport from './TextFieldExport'
+import TextFieldRedux from './TextFieldForm'
 import { Typography } from '@material-ui/core'
 
-const TextFieldEx = ({ handleSubmit, pristine, reset, submitting }) => {
+const TextFieldForm = ({ handleSubmit, pristine, reset, submitting }) => {
   
   const onSubmit = (values) => {
     console.log('onSubmit: values', values)
@@ -13,13 +13,13 @@ const TextFieldEx = ({ handleSubmit, pristine, reset, submitting }) => {
       <Typography variant='display1'>Text Fields</Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <TextFieldExport
+          <TextFieldRedux
             fieldName="firstName"
             fieldLabel="First Name"
           />
         </div>
         <div>
-          <TextFieldExport
+          <TextFieldRedux
             fieldName="notes"
             fieldLabel="Notes"
             rows={2}
@@ -38,4 +38,4 @@ const TextFieldEx = ({ handleSubmit, pristine, reset, submitting }) => {
 
 export default reduxForm({
   form: 'TextFields',
-})(TextFieldEx)
+})(TextFieldForm)

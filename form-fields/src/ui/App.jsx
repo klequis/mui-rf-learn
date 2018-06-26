@@ -4,15 +4,13 @@ import { Route, BrowserRouter as Router } from 'react-router-dom'
 import AppBar from 'ui/AppBar'
 import Home from 'ui/Home'
 import TestForm from './TestForm'
-import RadioButtons from './RadioButtons'
+import RadioGroupEx from './RadioGroupEx'
 import withRoot from './withRoot'
-import TextField from './TextField'
-import Checkboxes from './Checkboxes'
+import TextFieldEx from './TextFieldEx'
+import CheckboxEx from './CheckboxEx'
+import SelectEx from './SelectEx'
 
 class App extends React.Component {
-  componentDidMount() {
-    // this.props.requestReadEvents()
-  }
 
   render() {
     return (
@@ -20,9 +18,10 @@ class App extends React.Component {
         <Fragment>
           <AppBar />
           <Route path='/test-form' component={TestForm} />
-          <Route path='/radio-buttons' component={RadioButtons} />
-          <Route path='/text-field' component={TextField} />
-          <Route path='/checkboxes' component={Checkboxes} />
+          <Route path='/radio-buttons' component={RadioGroupEx} />
+          <Route path='/text-field' component={TextFieldEx} />
+          <Route path='/checkboxes' component={CheckboxEx} />
+          <Route path='/select' component={SelectEx} />
           <Route exact path='/' component={Home} />
         </Fragment>
       </Router>

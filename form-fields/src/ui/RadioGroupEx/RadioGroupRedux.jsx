@@ -15,7 +15,7 @@ const renderRadioGroup = ({ input, ...rest }) => {
   )
 }
 
-const RadioGroupExport = props => {
+const RadioGroupRedux = props => {
   const { formLabel, fieldName, children } = props
   return (
     <div>
@@ -30,4 +30,4 @@ const RadioGroupExport = props => {
   )
 }
 
-export default RadioGroupExport
+export default RadioGroupRedux

@@ -12,7 +12,7 @@ const renderCheckbox = ({ input }) => (
   />
 )
 
-const CheckboxExport = props => {
+const CheckboxRedux = props => {
   const { fieldName, fieldLabel } = props
   return (
     <FormControlLabel
@@ -27,4 +27,4 @@ const CheckboxExport = props => {
   )
 }
 
-export default CheckboxExport
+export default CheckboxRedux

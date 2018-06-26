@@ -1,19 +1,19 @@
 import React from 'react'
 import { reduxForm } from 'redux-form'
 import { Radio, FormControlLabel } from '@material-ui/core'
-import RadioGroupExport from './RadioGroupExport'
+import RadioGroupRedux from './RadioGroupRedux'
 
-const RadioButtons = props => {
+const RadioGroupForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props
   return (
     <form onSubmit={handleSubmit}>
-      <RadioGroupExport
-        formLabel='RadioGroupExportForm'
+      <RadioGroupRedux
+        formLabel='RadioGroupReduxForm'
         fieldName='sex'
       >
           <FormControlLabel value="female" control={<Radio />} label="Female" />
           <FormControlLabel value="male" control={<Radio />} label="Make" />
-      </RadioGroupExport>
+      </RadioGroupRedux>
       <div>
         <button type="submit" disabled={pristine || submitting}>Submit</button>
         <button type="button" disabled={pristine || submitting} onClick={reset}>
@@ -25,5 +25,5 @@ const RadioButtons = props => {
 }
 
 export default reduxForm({
-  form: 'RadioButtons', 
-})(RadioButtons)
+  form: 'RadioGroup', 
+})(RadioGroupForm)

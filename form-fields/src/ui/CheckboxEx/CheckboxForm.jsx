@@ -1,19 +1,19 @@
 import React from 'react'
 import { reduxForm } from 'redux-form'
-import CheckboxExport from './CheckboxExport'
+import CheckboxRedux from './CheckboxRedux'
 import { Typography } from '@material-ui/core'
 
-const Checkboxes = ({ handleSubmit, pristine, reset, submitting }) => {
+const CheckboxEx = ({ handleSubmit, pristine, reset, submitting }) => {
   const onSubmit = (values) => {
     console.log('onSubmit: values', values)
   }
 
   return (
     <div>
-      <Typography variant='display1'>Checkboxe(s)</Typography>
+      <Typography variant='display1'>Checkbox Group</Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <CheckboxExport
+          <CheckboxRedux
             fieldName='employed'
             fieldLabel='Employed'
           />
@@ -30,5 +30,5 @@ const Checkboxes = ({ handleSubmit, pristine, reset, submitting }) => {
 }
 
 export default reduxForm({
-  form: 'Checkboxes',
-})(Checkboxes)
+  form: 'CheckboxRedux',
+})(CheckboxEx)

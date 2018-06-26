@@ -25,6 +25,16 @@ const Home = () => {
             <ListItemText>Text field</ListItemText>
           </Link>
         </ListItem>
+        <ListItem>
+          <Link to='/checkboxes'>
+            <ListItemText>Checkbox</ListItemText>
+          </Link>
+        </ListItem>
+        <ListItem>
+          <Link to='/select'>
+            <ListItemText>Select</ListItemText>
+          </Link>
+        </ListItem>
       </List>
     </Fragment>
   )
