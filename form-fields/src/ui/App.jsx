@@ -3,12 +3,14 @@ import { Route, BrowserRouter as Router } from 'react-router-dom'
 // User
 import AppBar from 'ui/AppBar'
 import Home from 'ui/Home'
-import TestForm from './TestForm'
+// import TestForm from './TestForm'
 import RadioGroupEx from './RadioGroupEx'
 import withRoot from './withRoot'
 import TextFieldEx from './TextFieldEx'
 import CheckboxEx from './CheckboxEx'
 import SelectEx from './SelectEx'
+import DateTimeEx from './DateTimeEx'
+// import TryDatePicker from './TryDatePicker'
 
 class App extends React.Component {
 
@@ -17,11 +19,13 @@ class App extends React.Component {
       <Router>
         <Fragment>
           <AppBar />
-          <Route path='/test-form' component={TestForm} />
+          {/* <Route path='/test-form' component={TestForm} /> */}
           <Route path='/radio-buttons' component={RadioGroupEx} />
           <Route path='/text-field' component={TextFieldEx} />
           <Route path='/checkboxes' component={CheckboxEx} />
           <Route path='/select' component={SelectEx} />
+          <Route path='/time' component={DateTimeEx} />
+          {/* <Route path='/try-date-picker' component={TryDatePicker} /> */}
           <Route exact path='/' component={Home} />
         </Fragment>
       </Router>
