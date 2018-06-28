@@ -1,7 +1,8 @@
 import React from 'react'
 import { reduxForm } from 'redux-form'
 import { Radio, FormControlLabel } from '@material-ui/core'
-import RadioGroupRedux from './RadioGroupRedux'
+/* User */
+import RadioGroupRedux from 'ui/RadioGroupRedux'
 
 const RadioGroupForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props

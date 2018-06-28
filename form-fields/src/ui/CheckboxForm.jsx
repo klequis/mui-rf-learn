@@ -1,7 +1,8 @@
 import React from 'react'
 import { reduxForm } from 'redux-form'
-import CheckboxRedux from './CheckboxRedux'
 import { Typography } from '@material-ui/core'
+/* User */
+import CheckboxRedux from 'ui/CheckboxRedux'
 
 const CheckboxEx = ({ handleSubmit, pristine, reset, submitting }) => {
   const onSubmit = (values) => {

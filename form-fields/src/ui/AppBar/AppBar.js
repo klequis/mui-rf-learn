@@ -32,13 +32,15 @@ function MainAppBar(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="title" color="inherit" className={classes.flex}>
-            Drone Events
+            Material UI w/ Redux Form
           </Typography>
 
           <Link to='/'><Button colro='inherit'>Home</Button></Link>
-          <Link to='/new-event'><Button colro='inherit'>New Event</Button></Link>
-          <Link to='/upload'><Button colro='inherit'>Upload</Button></Link>
-          <Link to='/tags'><Button colro='inherit'>Tags</Button></Link>
+          <Link to='/checkbox'><Button colro='inherit'>Checkbox</Button></Link>
+          <Link to='/radio'><Button colro='inherit'>Radio</Button></Link>
+          <Link to='/select'><Button colro='inherit'>Select</Button></Link>
+          <Link to='/text'><Button colro='inherit'>Text</Button></Link>
+          <Link to='/time'><Button colro='inherit'>Time</Button></Link>
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>

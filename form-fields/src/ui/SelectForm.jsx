@@ -1,27 +1,28 @@
 import React from 'react'
 import { reduxForm } from 'redux-form'
-import { Typography } from '@material-ui/core'
-
-
+import { MenuItem } from '@material-ui/core'
 /* User */
-import DateTimeRedux from './DateTimeRedux'
+import SelectRedux from 'ui/SelectRedux'
 
-const DateTimeForm = ({ handleSubmit, pristine, reset, submitting }) => {
-  
-  const onSubmit = (values) => {
+const SelectForm = ({ handleSubmit, pristine, reset, submitting }) => {
+
+  const onSubmit = values => {
     console.log('onSubmit: values', values)
   }
+
   return (
     <div>
-      <Typography variant='display1'>DateTime</Typography>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
-          <DateTimeRedux
-            fieldName="startDateTime"
-            fieldLabel="Start Date & Time"
-          />
+          <SelectRedux
+            fieldName='favoriteColor'
+            fieldLabel='Favorite Color'
+          >
+            <MenuItem value="ff0000">Red</MenuItem>
+            <MenuItem value="00ff00">Green</MenuItem>
+            <MenuItem value="0000ff">Blue</MenuItem>
+          </SelectRedux>
         </div>
-        
         <div>
           <button type="submit" disabled={pristine || submitting}>Submit</button>
           <button type="button" disabled={pristine || submitting} onClick={reset}>
@@ -34,5 +35,5 @@ const DateTimeForm = ({ handleSubmit, pristine, reset, submitting }) => {
 }
 
 export default reduxForm({
-  form: 'DateTime',
-})(DateTimeForm)
+  form: 'Select',
+})(SelectForm)
