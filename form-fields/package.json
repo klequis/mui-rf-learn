@@ -4,7 +4,9 @@
   "version": "1.0.0",
   "private": true,
   "description": "events opensource",
-  "keywords": ["events"],
+  "keywords": [
+    "events"
+  ],
   "main": "src/index.js",
   "proxy": "http://localhost:3030",
   "dependencies": {

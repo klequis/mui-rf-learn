@@ -10,6 +10,9 @@ import RadioGroupForm from './RadioGroupForm'
 import SelectForm from './SelectForm'
 import TextFieldForm from './TextFieldForm'
 
+const style = {
+  padding: '20px',
+}
 class App extends React.Component {
 
   render() {
@@ -17,12 +20,14 @@ class App extends React.Component {
       <Router>
         <Fragment>
           <AppBar />
-          <Route path='/checkbox' component={CheckboxForm} />
-          <Route path='/radio' component={RadioGroupForm} />
-          <Route path='/select' component={SelectForm} />
-          <Route path='/text' component={TextFieldForm} />
-          <Route path='/time' component={DateTimeForm} />
-          <Route exact path='/' component={Home} />
+          <div style={style}>
+            <Route path='/checkbox' component={CheckboxForm} />
+            <Route path='/radio' component={RadioGroupForm} />
+            <Route path='/select' component={SelectForm} />
+            <Route path='/text' component={TextFieldForm} />
+            <Route path='/time' component={DateTimeForm} />
+            <Route exact path='/' component={Home} />
+          </div>
         </Fragment>
       </Router>
     )

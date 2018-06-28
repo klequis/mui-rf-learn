@@ -1,12 +1,16 @@
 import React from 'react'
 
+const style = {
+  color: 'white',
+}
+
 const ShowValues = ({ values }) => {
   console.log('values', values)
   return (
     <div>
-      <code>
-        {JSON.stringify(values)}
-      </code>
+      <pre style={style}>
+        {JSON.stringify(values, null, 4)}
+      </pre>
     </div>
   )
 }
