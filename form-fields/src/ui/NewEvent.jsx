@@ -16,6 +16,8 @@ import * as eventActions from 'store/actions/event-actions'
 import { green } from 'logger'
 import TextFieldRedux from 'ui/TextFieldRedux'
 import ShowValues from 'ui/ShowValues'
+import DateTimeRedux from 'ui/DateTimeRedux'
+import SelectRedux from 'ui/SelectRedux'
 
 const styles = theme => ({
   dateGroup: {
@@ -65,19 +67,23 @@ const styles = theme => ({
     padding: '20px 0 20px 0'
   },
 })
+;
 
 const populateEvent =(values) => {
-  if (!values.startDateTime) {
-    green('startDateTime', values.startDateTime)
-    
-  }
+  
+  const sd = new Date(values.startDateTime)
+  const startDate = sd.toISOString()
+  const ed = new Date(values.endDateTime)
+  const endDate = ed.toISOString()
+  console.log(`start:${startDate}, end:${endDate}`)
+  // console.log('dt', dt)
   return ({
     category: values.category,
-    endDateTime: values.endDateTime || new Date(),
+    endDateTime: endDate,
     imageUrl: 'https://s3-us-west-2.amazonaws.com/photo-app-tvc/briia.jpg',
     organization: values.organization,
     price: values.price,
-    startDateTime: values.startDateTime || new Date(),
+    startDateTime: endDate,
     tags: [
       values.tag01,
       values.tag02,
@@ -88,22 +94,21 @@ const populateEvent =(values) => {
   })
 }
 
+const convertDate = (date) => {
+  const ad = date.split(' ')
+  console.log('ad', ad)
+}
 class NewEvent extends React.Component {
   state = {
     values: ''
   }
+   
   onSubmit = (values) => {
-    green('onSubmit: values', values)
-    // console.log('handleSubmit')
-    console.log('values', values)
-    
-    const toDb = populateEvent(values)
+    const validatedValues = populateEvent(values)
     this.setState({
-      values: values
+      values: validatedValues
     })
-    // green('toDb', toDb)
-    // requestCreateEvent(toDb)
-
+    
   }
   render() {
     const { classes, handleSubmit, pristine, reset, requestCreateEvent, submitting, values } = this.props
@@ -130,93 +135,77 @@ class NewEvent extends React.Component {
             */}
             <div className={classes.titleArea}>
               <TextFieldRedux
-                fieldName='eventTitle'
+                fieldName='title'
                 fieldLabel='Event title'
                 
               />
             </div>
-            {/* <div>
-              <DateTimePickerRow
-                name='time-picker'
-              />
-            </div> */}
-            <div className={classes.dateArea}>
-              {/* 
-              <DateTimeField
-                name='startDateTime'
-                // placeholder='Data'
-              />
-              */}
-              {/* <Field
-                animateYearScrolling={false}
-                autoSubmit={false}
-                className={classes.timeField}
-                component={DateTimeChooser}
-                inputProps={{ id: 'startDateTime' }}
-                label='Start date & time'
-                name='startDateTime'
-                // placeholder='Data'
-              />
-              <Field
-                animateYearScrolling={false}
-                autoSubmit={false}
-                className={classes.timeField}
-                component={DateTimeChooser}
-                inputProps={{ id: 'endDateTime' }}
-                label='End date & time'
-                name='endDateTime'
-                // placeholder='Data'
-              /> */}
+            <div>
+              
             </div>
-            {/* 
+            <div className={classes.dateArea}>
+              <DateTimeRedux
+                fieldName='startDateTime'
+                fieldLabel='Start Date & Time'
+              />
+              <DateTimeRedux
+                fieldName='endDateTime'
+                fieldLabel='End Dat & Time'
+              />
+            </div>
+            
             <div className={classes.organizationArea}>
-              <TextInput
+              <TextFieldRedux
                 fullWidth
-                label='Organization'
-                name='organization'
+                fieldLabel='Organization'
+                fieldName='organization'
               />
             </div>
             
             <div className={classes.venuArea}>
-              <TextInput
+              <TextFieldRedux
                 fullWidth
-                label='Venu'
-                name='venu'
+                fieldLabel='Venu'
+                fieldName='venu'
               />
             </div>
+            
             <div className={classes.priceArea}>
-              <TextInput
+              <TextFieldRedux
                 fullWidth
-                label='Price'
-                name='price'
+                fieldLabel='Price'
+                fieldName='price'
               />
             </div>
+            
             <div className={classes.categoryArea}>
-              <SelectField
-                name='category'
+              <SelectRedux
+                fieldName='category'
+                fieldLabel='Category'
               >
                 <MenuItem value='Quadcopter'>Quadcopter</MenuItem>
                 <MenuItem value='Octocopter'>Octocopter</MenuItem>
                 <MenuItem value='Racing'>Racing</MenuItem>
                 <MenuItem value='Video'>Video</MenuItem>
-              </SelectField>
+              </SelectRedux>
               
             </div>
+             
             <div className={classes.tagArea}>
-              <TextInput
-                label='tag 1'
-                name='tag01'
+              <TextFieldRedux
+                fieldLabel='tag 1'
+                fieldName='tag01'
               />
-              <TextInput
-                label='tag 2'
-                name='tag02'
+              <TextFieldRedux
+                fieldLabel='tag 2'
+                fieldName='tag02'
               />
-              <TextInput
-                label='tag 3'
-                name='tag03'
+              <TextFieldRedux
+                fieldLabel='tag 3'
+                fieldName='tag03'
               />
             </div>
-            */}
+            
             <div>
               {/*<Button type='submit' disabled={pristine || submitting}>*/}
                 {/*Submit*/}

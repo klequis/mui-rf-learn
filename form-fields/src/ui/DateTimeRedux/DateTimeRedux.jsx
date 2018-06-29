@@ -16,6 +16,7 @@ class DateTimeField extends React.Component {
         {...rest}
         onChange={onChange}
         value={currentDateTime}
+        format='MMM DD YYYY hh:mm A'
       />
     )
   }
