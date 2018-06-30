@@ -20,13 +20,13 @@ class App extends React.Component {
       <Router>
         <Fragment>
           <AppBar />
-          <NewEvent />
           <div style={style}>
             <Route path='/checkbox' component={CheckboxForm} />
             <Route path='/radio' component={RadioGroupForm} />
             <Route path='/select' component={SelectForm} />
             <Route path='/text' component={TextFieldForm} />
             <Route path='/time' component={DateTimeForm} />
+            <Route path='/new-event' component={NewEvent} />
           </div>
         </Fragment>
       </Router>

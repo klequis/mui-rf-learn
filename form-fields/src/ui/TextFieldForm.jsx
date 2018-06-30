@@ -4,6 +4,17 @@ import { Typography } from '@material-ui/core'
 /* User */
 import TextFieldRedux from 'ui/TextFieldRedux'
 import ShowValues from 'ui/ShowValues'
+import { green } from 'logger'
+
+const validate = values => {
+  green('validate!')
+  green('values.firstName', values.firstName)
+  const errors = {}
+  if (!values.firstName) {
+    errors.firstName = 'Required'
+  }
+  return errors
+}
 
 class TextFieldForm extends React.Component {
   state = {
@@ -25,6 +36,7 @@ class TextFieldForm extends React.Component {
             <TextFieldRedux
               fieldName="firstName"
               fieldLabel="First Name"
+              required
             />
           </div>
           <div>
@@ -50,4 +62,5 @@ class TextFieldForm extends React.Component {
 
 export default reduxForm({
   form: 'TextFields',
+  validate,
 })(TextFieldForm)

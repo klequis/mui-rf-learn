@@ -13,11 +13,11 @@ import DateFnsUtils from 'material-ui-pickers/utils/date-fns-utils'
 
 /* User */
 import * as eventActions from 'store/actions/event-actions'
-import { green } from 'logger'
 import TextFieldRedux from 'ui/TextFieldRedux'
 import ShowValues from 'ui/ShowValues'
 import DateTimeRedux from 'ui/DateTimeRedux'
 import SelectRedux from 'ui/SelectRedux'
+import { green } from 'logger'
 
 const styles = theme => ({
   dateGroup: {
@@ -94,10 +94,6 @@ const populateEvent =(values) => {
   })
 }
 
-const convertDate = (date) => {
-  const ad = date.split(' ')
-  console.log('ad', ad)
-}
 class NewEvent extends React.Component {
   state = {
     values: ''
@@ -108,10 +104,10 @@ class NewEvent extends React.Component {
     this.setState({
       values: validatedValues
     })
-    
+    this.props.requestCreateEvent(validatedValues)
   }
   render() {
-    const { classes, handleSubmit, pristine, reset, requestCreateEvent, submitting, values } = this.props
+    const { classes, handleSubmit, pristine, reset, requestCreateEvent, submitting } = this.props
     return (
       <MuiPickersUtilsProvider
           utils={DateFnsUtils}
